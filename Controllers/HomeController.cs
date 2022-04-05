@@ -27,6 +27,30 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
         {
             return View();
         }
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Analysis()
+        {
+            return View();
+        }
+
+        public IActionResult MapAnalysis(string county)
+        {
+            //var accidents = context.Accidents
+            //    .Include("Team")
+            //    .Where(x => x.County == county || County == null)
+            //    .ToList();
+
+            return View();
+        }
+
+        public IActionResult DriveSafe()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

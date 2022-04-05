@@ -1,8 +1,64 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
+    Layout = "_Layout1";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('img/traffic.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Utah Motor Vehicle Accident Analysis</h1>
+                    <span class="subheading">Created by DriveSave CO.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- About Tab -->
+            <div class="post-preview">
+                <a asp-controller="Home" asp-action="About">
+                    <h2 class="post-title">About</h2>
+                    <h3 class="post-subtitle">Want to know more about our mission? Click here!</h3>
+                </a>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Analysis Tab -->
+            <div class="post-preview">
+                <a asp-controller="Home" asp-action="Analysis">
+                    <h2 class="post-title">Analysis</h2>
+                    <h3 class="post-subtitle">Learn more about what increases the chances of a crash.</h3>
+                </a>
+            </div>
+
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Map Analysis Tab -->
+            <div class="post-preview">
+                <a asp-controller="Home" asp-action="MapAnalysis">
+                    <h2 class="post-title">Map Analysis</h2>
+                    <h3 class="post-subtitle">See where accidents commonly occur here.</h3>
+                </a>
+            </div>
+
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- DriveSafe Tab -->
+            <div class="post-preview">
+                <a asp-controller="Home" asp-action="DriveSafe">
+                    <h2 class="post-title">DriveSafe</h2>
+                    <h3 class="post-subtitle">Are you likely to get into an accident? Come find out!</h3>
+                </a>
+            </div>
+
+            <!-- Divider-->
+            <hr class="my-4" />
+        </div>
+    </div>
 </div>
