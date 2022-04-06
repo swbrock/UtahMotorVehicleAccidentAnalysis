@@ -39,9 +39,8 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
 
         public IActionResult MapAnalysis(string county)
         {
-            //var accidents = context.Accidents
-            //    .Include("Team")
-            //    .Where(x => x.County == county || County == null)
+            //var accidents = repo.Accidents
+            //    .Where(x => x.Cou == county || County == null)
             //    .ToList();
 
             return View();
