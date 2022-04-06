@@ -4,30 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Utah Crash Analysis</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
     <link rel="icon" type="image/png" href="~/img/car_icon.png" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Utah Crash Analysis</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <header style="background-image: url('img/traffic.jpg')">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">BACK  </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                     
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" asp-controller="Role" asp-action="Index">Roles</a></li>
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Page Header-->
+    <header class="masthead" style="padding: 35px; padding-top: 90px; background-image: url('../../img/traffic.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-subheading" style="color:white; text-align: center;">
+                        <h1></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--Body-->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -36,12 +50,12 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            © 2020 - Utah Crash Analysis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            © 2022 - Utah Motor Vehicle Crash Analysis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/scripts.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
