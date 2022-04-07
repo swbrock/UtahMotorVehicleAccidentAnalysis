@@ -1,0 +1,224 @@
+﻿@{
+    ViewData["Title"] = "City Details";
+    Layout = "_Layout1";
+
+    var city = Model.Select(x => x.CITY).Distinct();
+
+    var one = Model.Where(x => x.CRASH_SEVERITY_ID == 1);
+    var two = Model.Where(x => x.CRASH_SEVERITY_ID == 2);
+    var three = Model.Where(x => x.CRASH_SEVERITY_ID == 3);
+    var four = Model.Where(x => x.CRASH_SEVERITY_ID == 4);
+    var five = Model.Where(x => x.CRASH_SEVERITY_ID == 5);
+
+    var work = Model.Where(x => x.WORK_ZONE_RELATED == "True").Count();
+    var ped = Model.Where(x => x.PEDESTRIAN_INVOLVED == "True").Count();
+    var bic = Model.Where(x => x.BICYCLIST_INVOLVED == "True").Count();
+    var motor = Model.Where(x => x.MOTORCYCLE_INVOLVED == "True").Count();
+    var imp = Model.Where(x => x.IMPROPER_RESTRAINT == "True").Count();
+    var unres = Model.Where(x => x.UNRESTRAINED == "True").Count();
+    var dui = Model.Where(x => x.DUI == "True").Count();
+    var inter = Model.Where(x => x.INTERSECTION_RELATED == "True").Count();
+    var wild = Model.Where(x => x.WILD_ANIMAL_RELATED == "True").Count();
+    var dom = Model.Where(x => x.DOMESTIC_ANIMAL_RELATED == "True").Count();
+    var over = Model.Where(x => x.OVERTURN_ROLLOVER == "True").Count();
+    var comm = Model.Where(x => x.COMMERCIAL_MOTOR_VEH_INVOLVED == "True").Count();
+    var teen = Model.Where(x => x.TEENAGE_DRIVER_INVOLVED == "True").Count();
+    var older = Model.Where(x => x.OLDER_DRIVER_INVOLVED == "True").Count();
+    var night = Model.Where(x => x.NIGHT_DARK_CONDITION == "True").Count();
+    var single = Model.Where(x => x.SINGLE_VEHICLE == "True").Count();
+    var dist = Model.Where(x => x.DISTRACTED_DRIVING == "True").Count();
+    var drow = Model.Where(x => x.DROWSY_DRIVING == "True").Count();
+    var roadway = Model.Where(x => x.ROADWAY_DEPARTURE == "True").Count();
+}
+
+@model List<Accident>
+<head>
+    <style>
+        #filter:hover {
+            color: #0085A1;
+        }
+    </style>
+</head>
+
+<!-- Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/cities.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-subheading" style="color:white; text-align: center;">
+                    @foreach (var c in city)
+                    {
+                        <h1>@c</h1>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Summary Table -->
+                <div class="post-preview">
+                    <h2 class="post-title">Summary</h2>
+                </div>
+
+                <table class="table">
+
+                    <thead class="font-weight-bold" style="background-color: #efdecd; font-weight: bold;">
+                        <tr>
+                            <td>Total Crashes</td>
+                            <td>@Model.Count()</td>
+                            <td>100%</td>
+                        </tr>
+
+                    </thead>
+
+                    <tr>
+                        <td>Crash Severity 1</td>
+                        <td>@one.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(one.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 2</td>
+                        <td>@two.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(two.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 3</td>
+                        <td>@three.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(three.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 4</td>
+                        <td>@four.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(four.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 5</td>
+                        <td>@five.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(five.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+
+                </table>
+
+                <p class="small" style="text-align:center; "><i>Click the table headers below to sort the table accordingly.</i></p>
+                <!-- Features Summary-->
+                <table class="table sortable" id="features">
+
+                    <thead class="font-weight-bold" style="background-color: #efdecd; font-weight: bold;">
+                        <tr>
+                            <td style="cursor: pointer;" id="filter">Total Crashes</td>
+                            <td style="cursor: pointer;" id="filter">@Model.Count()</td>
+                            <td style="cursor: pointer;" id="filter">100%</td>
+                        </tr>
+
+                    </thead>
+
+                    <tr class="item">
+                        <td>WORK_ZONE_RELATED</td>
+                        <td>@work</td>
+                        <td>@Math.Round((Decimal.Divide(work, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>PEDESTRIAN_INVOLVED</td>
+                        <td>@ped</td>
+                        <td>@Math.Round((Decimal.Divide(ped, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>BICYCLIST_INVOLVED</td>
+                        <td>@bic</td>
+                        <td>@Math.Round((Decimal.Divide(bic, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>MOTORCYCLE_INVOLVED</td>
+                        <td>@motor</td>
+                        <td>@Math.Round((Decimal.Divide(motor, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>IMPROPER_RESTRAINT</td>
+                        <td>@imp</td>
+                        <td>@Math.Round((Decimal.Divide(imp, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>UNRESTRAINED</td>
+                        <td>@unres</td>
+                        <td>@Math.Round((Decimal.Divide(unres, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>DUI</td>
+                        <td>@dui</td>
+                        <td>@Math.Round((Decimal.Divide(dui, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>INTERSECTION_RELATED</td>
+                        <td>@inter</td>
+                        <td>@Math.Round((Decimal.Divide(inter, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>WILD_ANIMAL_RELATED</td>
+                        <td>@wild</td>
+                        <td>@Math.Round((Decimal.Divide(wild, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>DOMESTIC_ANIMAL_RELATED</td>
+                        <td>@dom</td>
+                        <td>@Math.Round((Decimal.Divide(dom, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>OVERTURN_ROLLOVER</td>
+                        <td>@over</td>
+                        <td>@Math.Round((Decimal.Divide(over, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>COMMERCIAL_MOTOOR_VEH_INVOLVED</td>
+                        <td>@comm</td>
+                        <td>@Math.Round((Decimal.Divide(comm, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>TEENAGE_DRIVER_INVOLVED</td>
+                        <td>@teen</td>
+                        <td>@Math.Round((Decimal.Divide(teen, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>OLDER_DRIVER_INVOLVED</td>
+                        <td>@older</td>
+                        <td>@Math.Round((Decimal.Divide(older, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>NIGHT_DARK_CONDITION</td>
+                        <td>@night</td>
+                        <td>@Math.Round((Decimal.Divide(night, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>SINGLE_VEHICLE</td>
+                        <td>@single</td>
+                        <td>@Math.Round((Decimal.Divide(single, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>DISTRACTED_DRIVING</td>
+                        <td>@dist</td>
+                        <td>@Math.Round((Decimal.Divide(dist, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>DROWSY_DRIVING</td>
+                        <td>@drow</td>
+                        <td>@Math.Round((Decimal.Divide(work, Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr class="item">
+                        <td>ROADWAY_DEPARTURE</td>
+                        <td>@roadway</td>
+                        <td>@Math.Round((Decimal.Divide(roadway, Model.Count())) * 100, 2)%</td>
+                    </tr>
+
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+</main>

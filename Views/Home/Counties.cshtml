@@ -41,7 +41,7 @@
                 else {
                     @foreach (var name in county)
                     {
-                        <h3 style="color:">@name</h3>
+                        <h3>@name COUNTY</h3>
                     }
                 }
 
@@ -64,7 +64,7 @@
                         else
                         {
                             <tr>
-                                <td>@c</td>
+                                <td><a asp-controller="Home" asp-action="City" asp-route-city="@c">@c</a></td>
                             </tr>
                         }
                     }

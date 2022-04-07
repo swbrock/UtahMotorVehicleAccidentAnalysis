@@ -47,6 +47,15 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             return View(counties);
         }
 
+        public IActionResult City(string city)
+        {
+            var details = repo.Accidents
+                .Where(x => x.CITY == city)
+                .ToList();
+
+            return View(details);
+        }
+
         public IActionResult Accidents()
         {
             return View();
