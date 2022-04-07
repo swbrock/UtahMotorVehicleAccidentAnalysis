@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -60,8 +61,6 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             var counties = repo.Accidents
                 .Where(x => x.county_name == county || county == null)
                 .ToList();
-
-           
             return View(counties);
         }
 
@@ -80,6 +79,17 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
         }
 
         public IActionResult DriveSafe()
+        {
+            return View();
+        }
+
+        [Authorize(Policy = "writepolicy")]
+        public IActionResult AddEditAccident()
+        {
+            return View();
+        }
+        [Authorize(Policy = "writepolicy")]
+        public IActionResult Delete()
         {
             return View();
         }
