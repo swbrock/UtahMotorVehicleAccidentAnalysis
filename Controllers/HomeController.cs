@@ -43,7 +43,7 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             //    .Where(x => x.Cou == county || County == null)
             //    .ToList();
 
-            return View();
+            return View();//accidents);
         }
 
         public IActionResult DriveSafe()

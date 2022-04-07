@@ -1,0 +1,13 @@
+﻿@{
+}
+
+@model IEnumerable<string>
+
+<a asp-controller="Home" asp-action="MapAnalysis" asp-route-county=""
+   class="btn @(ViewBag.SelectedType == null ? "btn-primary" : "btn-outline-secondary") col-md"></a>
+
+@foreach (string t in Model)
+{
+    <a asp-controller="Home" asp-action="MapAnalysis" asp-route-county="@t"
+       class="btn @(ViewBag.SelectedType == t ? "btn-primary" : "btn-outline-secondary") col-md">@t</a>
+}
