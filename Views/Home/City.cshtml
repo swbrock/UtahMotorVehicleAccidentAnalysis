@@ -2,33 +2,33 @@
     ViewData["Title"] = "City Details";
     Layout = "_Layout1";
 
-    var city = Model.Select(x => x.CITY).Distinct();
+    var city = Model.Select(x => x.city).Distinct();
 
-    var one = Model.Where(x => x.CRASH_SEVERITY_ID == 1);
-    var two = Model.Where(x => x.CRASH_SEVERITY_ID == 2);
-    var three = Model.Where(x => x.CRASH_SEVERITY_ID == 3);
-    var four = Model.Where(x => x.CRASH_SEVERITY_ID == 4);
-    var five = Model.Where(x => x.CRASH_SEVERITY_ID == 5);
+    var one = Model.Where(x => x.crash_severity_id == 1);
+    var two = Model.Where(x => x.crash_severity_id == 2);
+    var three = Model.Where(x => x.crash_severity_id == 3);
+    var four = Model.Where(x => x.crash_severity_id == 4);
+    var five = Model.Where(x => x.crash_severity_id == 5);
 
-    var work = Model.Where(x => x.WORK_ZONE_RELATED == "True").Count();
-    var ped = Model.Where(x => x.PEDESTRIAN_INVOLVED == "True").Count();
-    var bic = Model.Where(x => x.BICYCLIST_INVOLVED == "True").Count();
-    var motor = Model.Where(x => x.MOTORCYCLE_INVOLVED == "True").Count();
-    var imp = Model.Where(x => x.IMPROPER_RESTRAINT == "True").Count();
-    var unres = Model.Where(x => x.UNRESTRAINED == "True").Count();
-    var dui = Model.Where(x => x.DUI == "True").Count();
-    var inter = Model.Where(x => x.INTERSECTION_RELATED == "True").Count();
-    var wild = Model.Where(x => x.WILD_ANIMAL_RELATED == "True").Count();
-    var dom = Model.Where(x => x.DOMESTIC_ANIMAL_RELATED == "True").Count();
-    var over = Model.Where(x => x.OVERTURN_ROLLOVER == "True").Count();
-    var comm = Model.Where(x => x.COMMERCIAL_MOTOR_VEH_INVOLVED == "True").Count();
-    var teen = Model.Where(x => x.TEENAGE_DRIVER_INVOLVED == "True").Count();
-    var older = Model.Where(x => x.OLDER_DRIVER_INVOLVED == "True").Count();
-    var night = Model.Where(x => x.NIGHT_DARK_CONDITION == "True").Count();
-    var single = Model.Where(x => x.SINGLE_VEHICLE == "True").Count();
-    var dist = Model.Where(x => x.DISTRACTED_DRIVING == "True").Count();
-    var drow = Model.Where(x => x.DROWSY_DRIVING == "True").Count();
-    var roadway = Model.Where(x => x.ROADWAY_DEPARTURE == "True").Count();
+    var work = Model.Where(x => x.work_zone_related == "TRUE").Count();
+    var ped = Model.Where(x => x.pedestrian_involved == "TRUE").Count();
+    var bic = Model.Where(x => x.bicyclist_involved == "TRUE").Count();
+    var motor = Model.Where(x => x.motorcycle_involved == "TRUE").Count();
+    var imp = Model.Where(x => x.improper_restraint == "TRUE").Count();
+    var unres = Model.Where(x => x.unrestrained == "TRUE").Count();
+    var dui = Model.Where(x => x.dui == "TRUE").Count();
+    var inter = Model.Where(x => x.intersection_related == "TRUE").Count();
+    var wild = Model.Where(x => x.wild_animal_related == "TRUE").Count();
+    var dom = Model.Where(x => x.domestic_animal_related == "TRUE").Count();
+    var over = Model.Where(x => x.overturn_rollover == "TRUE").Count();
+    var comm = Model.Where(x => x.commercial_motor_veh_involved == "TRUE").Count();
+    var teen = Model.Where(x => x.teenage_driver_involved == "TRUE").Count();
+    var older = Model.Where(x => x.older_driver_involved == "TRUE").Count();
+    var night = Model.Where(x => x.night_dark_condition == "TRUE").Count();
+    var single = Model.Where(x => x.single_vehicle == "TRUE").Count();
+    var dist = Model.Where(x => x.distracted_driving == "TRUE").Count();
+    var drow = Model.Where(x => x.drowsy_driving == "TRUE").Count();
+    var roadway = Model.Where(x => x.roadway_departure == "TRUE").Count();
 }
 
 @model List<Accident>

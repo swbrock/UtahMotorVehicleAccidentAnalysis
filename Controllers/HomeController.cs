@@ -37,10 +37,28 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             return View();
         }
 
+        public IActionResult Database(int severity)
+        {
+            var severities = repo.Accidents
+                .Where(x => x.crash_severity_id == severity || severity == 0)
+                .ToList();
+
+            return View(severities);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var details = repo.Accidents
+                .Where(x => x.crash_id == id)
+                .FirstOrDefault();
+
+            return View(details);
+        }
+
         public IActionResult Counties(string county)
         {
             var counties = repo.Accidents
-                .Where(x => x.COUNTY_NAME == county || county == null)
+                .Where(x => x.county_name == county || county == null)
                 .ToList();
 
            
@@ -50,13 +68,13 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
         public IActionResult City(string city)
         {
             var details = repo.Accidents
-                .Where(x => x.CITY == city)
+                .Where(x => x.city == city)
                 .ToList();
 
             return View(details);
         }
 
-        public IActionResult Accidents()
+        public IActionResult Factors()
         {
             return View();
         }

@@ -1,51 +1,48 @@
-﻿@{
-    ViewData["Title"] = "Counties";
+﻿@*@{
+    ViewData["Title"] = "Factors";
     Layout = "_Layout1";
-
-    var cities = Model.Select(x => x.city).Distinct();
-
-    var county = Model.Select(x => x.county_name).Distinct();
 }
 
-@model List<Accident>
+@model List<Accident>*@
 <!-- Page Header-->
-<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/cities.jpg')">
+<!--<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/police.jpg'); background-size: 1500px 1000px; background-position: 50% 40%;">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-subheading" style="color:white; text-align: center;">
-                    <h1>Counties</h1>
+                    <h1>Factors</h1>
                 </div>
             </div>
         </div>
     </div>
-</header>
+</header>-->
 
 <!-- Filter -->
-<div id="types" class="justify-content-center" style="text-align:center;">
-    @await Component.InvokeAsync("Types")
-</div>
+<!--<div id="types" class="justify-content-center" style="text-align:center;">-->
+    @*@await Component.InvokeAsync("Factors")*@
+<!--</div>-->
 <!-- Divider-->
-<hr class="my-4" />
+<!--<hr class="my-4" />-->
 
 
 <!-- Main Content-->
-<main class="mb-4">
+<!--<main class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center;">
-               
-                @if (county.Count() > 1)
+            <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center;">-->
+
+                @*@if (county.Count() > 1)
                 {
                 }
-                else {
+                else
+                {
                     @foreach (var name in county)
                     {
                         <h3>@name COUNTY</h3>
                     }
-                }
+                }*@
 
-                <br />
+                <!--<br />
 
                 <table class="table table-bordered table-striped">
 
@@ -53,9 +50,9 @@
                         <tr>
                             <th>City</th>
                         </tr>
-                    </thead>
+                    </thead>-->
 
-                    @foreach (var c in cities)
+                    @*@foreach (var c in cities)
                     {
                         if (c == "OUTSIDE CITY LIMITS")
                         {
@@ -67,12 +64,12 @@
                                 <td><a asp-controller="Home" asp-action="City" asp-route-city="@c">@c</a></td>
                             </tr>
                         }
-                    }
+                    }*@
 
 
 
-                </table>
+                <!--</table>
             </div>
         </div>
     </div>
-</main>
+</main>-->
