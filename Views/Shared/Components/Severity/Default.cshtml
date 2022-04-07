@@ -1,0 +1,13 @@
+﻿@{
+}
+
+@model IEnumerable<int>
+
+<a asp-controller="Home" asp-action="Database" asp-route-severity=0
+   class="btn @(ViewBag.SelectedType == null ? "btn-primary" : "btn-outline-secondary") col-md justify-content-center">All</a>
+
+@foreach (int a in Model)
+{
+    <a asp-controller="Home" asp-action="Database" asp-route-severity=@a
+       class="btn @(ViewBag.SelectedType == a ? "btn-primary" : "btn-outline-secondary") col-md justify-content-center">Crash Severity @a</a>
+}

@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout1";
+
+}
+@model Accident
+<!-- Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../../img/database.jpg');background-position: 49% 51%;">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-subheading" style="color:white; text-align: center;">
+                    <h1>Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Details Table -->
+                <div class="post-preview" style="text-align: right;">
+                    <a class="btn" style="padding: 10px; background-color: #d5d6a3; " asp-controller="Home" asp-action="Edit" asp-route-id="">  Edit  </a>
+                    <a class="btn" style="padding: 10px; background-color: #ba8282;" asp-controller="Home" asp-action="Delete" asp-route-id="">  Delete  </a>
+                </div>
+                <br />
+                <table class="table">
+
+                    <thead class="font-weight-bold" style="background-color: #77aab5; font-weight: bold;">
+                        <tr>
+                            <td>Crash ID</td>
+                            <td>@Model.crash_id</td>
+                        </tr>
+
+                    </thead>
+
+                    <tr>
+                        <td>Crash Datetime</td>
+                        <td>@Model.crash_datetime</td>
+                    </tr>
+                    <tr>
+                        <td>Route</td>
+                        <td>@Model.route</td>
+                    </tr>
+                    <tr>
+                        <td>Milepoint</td>
+                        <td>@Model.milepoint</td>
+                    </tr>
+                    <tr>
+                        <td>Latitude</td>
+                        <td>@Model.lat_utm_y</td>
+                    </tr>
+                    <tr>
+                        <td>Longitude</td>
+                        <td>@Model.long_utm_x</td>
+                    </tr>
+                    <tr>
+                        <td>Main Road Name</td>
+                        <td>@Model.main_road_name</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>@Model.city</td>
+                    </tr>
+                    <tr>
+                        <td>County</td>
+                        <td>@Model.county_name</td>
+                    </tr>
+                    <tr>
+                        <td>Work Zone Related</td>
+                        <td>@Model.work_zone_related</td>
+                    </tr>
+                    <tr>
+                        <td>Pedestrian Involved</td>
+                        <td>@Model.pedestrian_involved</td>
+                    </tr>
+                    <tr>
+                        <td>Bicyclist Involved</td>
+                        <td>@Model.bicyclist_involved</td>
+                    </tr>
+                    <tr>
+                        <td>Motorcycle Involved</td>
+                        <td>@Model.motorcycle_involved</td>
+                    </tr>
+                    <tr>
+                        <td>Improper Restraint</td>
+                        <td>@Model.improper_restraint</td>
+                    </tr>
+                    <tr>
+                        <td>Unrestrained</td>
+                        <td>@Model.unrestrained</td>
+                    </tr>
+                    <tr>
+                        <td>DUI</td>
+                        <td>@Model.dui</td>
+                    </tr>
+                    <tr>
+                        <td>Intersection Related</td>
+                        <td>@Model.intersection_related</td>
+                    </tr>
+                    <tr>
+                        <td>Wild Animal Related</td>
+                        <td>@Model.wild_animal_related</td>
+                    </tr>
+                    <tr>
+                        <td>Domestic Animal Related</td>
+                        <td>@Model.domestic_animal_related</td>
+                    </tr>
+                    <tr>
+                        <td>Overturn Rollover</td>
+                        <td>@Model.overturn_rollover</td>
+                    </tr>
+                    <tr>
+                        <td>Commercial Motor Vehicle Involved</td>
+                        <td>@Model.commercial_motor_veh_involved</td>
+                    </tr>
+                    <tr>
+                        <td>Teenage Driver Involved</td>
+                        <td>@Model.teenage_driver_involved</td>
+                    </tr>
+                    <tr>
+                        <td>Older Driver Involved</td>
+                        <td>@Model.older_driver_involved</td>
+                    </tr>
+                    <tr>
+                        <td>Night/Dark Condition</td>
+                        <td>@Model.night_dark_condition</td>
+                    </tr>
+                    <tr>
+                        <td>Single Vehicle</td>
+                        <td>@Model.single_vehicle</td>
+                    </tr>
+                    <tr>
+                        <td>Distracted Driving</td>
+                        <td>@Model.distracted_driving</td>
+                    </tr>
+                    <tr>
+                        <td>Drowsy Driving</td>
+                        <td>@Model.drowsy_driving</td>
+                    </tr>
+                    <tr>
+                        <td>Roadway Departure</td>
+                        <td>@Model.roadway_departure</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

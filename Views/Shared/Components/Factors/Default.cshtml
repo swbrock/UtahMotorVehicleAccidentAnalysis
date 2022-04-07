@@ -1,0 +1,15 @@
+﻿@{
+}
+
+@model IEnumerable<string>
+
+<a asp-controller="Home" asp-action="Factors" asp-route-county=""
+   class="btn @(ViewBag.SelectedType == null ? "btn-primary" : "btn-outline-secondary") col-md justify-content-center">All</a>
+
+@foreach (string a in Model)
+{
+    if (a == "crash_id"){}
+
+    <a asp-controller="Home" asp-action="Factors" asp-route-county="@a"
+       class="btn @(ViewBag.SelectedType == a ? "btn-primary" : "btn-outline-secondary") col-md justify-content-center">@a</a>
+}

@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Database";
+    Layout = "_Layout1";
+
+    var id = Model.Select(x => x.crash_severity_id).Distinct();
+}
+@model List<Accident>
+
+<!-- Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/database.jpg');background-position: 49% 51%;">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-subheading" style="color:white; text-align: center;">
+                    <h1>Database</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Filter -->
+<div id="types" class="justify-content-center" style="text-align:center;">
+    @await Component.InvokeAsync("Severity")
+</div>
+<!-- Divider-->
+<hr class="my-4" />
+
+<p style="text-align: center;">
+    1=no injury | 2=possible injury |  3=suspected minor injury | 4=suspected serious injury | 5=fatal
+</p>
+
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center;">
+
+                @if (id.Count() > 1)
+                {
+                }
+                else
+                {
+                    @foreach (var severity in id)
+                    {
+                        <h3>Crash Severity @severity</h3>
+                    }
+                }
+
+                <br />
+
+            </div>
+
+            <div style="overflow-y: scroll; height: 600px; width: 1500px; text-align: left; border: 2px solid black; padding: 7px;">
+                <table class="table table-bordered table-striped">
+
+                    <thead class="font-weight-bold">
+                        <tr>
+                            <th>Crash ID</th>
+                            <th>Crash Severity</th>
+                            <th>Crash Datetime</th>
+                            <th>Main Road Name</th>
+                            <th>City</th>
+                            <th>County</th>
+                            <th>More Info</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.crash_id</td>
+                            <td>@x.crash_severity_id</td>
+                            <td>@x.crash_datetime</td>
+                            <td>@x.main_road_name</td>
+                            <td>@x.city</td>
+                            <td>@x.county_name</td>
+                            <td><a asp-controller="Home" asp-action="Details" asp-route-id="@x.crash_id" class="btn-primary" style="padding:3px;">Details</a></td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

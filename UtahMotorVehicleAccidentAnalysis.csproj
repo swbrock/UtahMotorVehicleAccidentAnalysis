@@ -24,10 +24,14 @@
     <None Remove="Components\" />
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\Types\" />
+    <None Remove="Views\Shared\Components\Factors\" />
+    <None Remove="Views\Shared\Components\Severity\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\" />
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Types\" />
+    <Folder Include="Views\Shared\Components\Factors\" />
+    <Folder Include="Views\Shared\Components\Severity\" />
   </ItemGroup>
 </Project>

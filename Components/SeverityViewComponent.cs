@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -7,23 +7,23 @@ using UtahMotorVehicleAccidentAnalysis.Models;
 
 namespace UtahMotorVehicleAccidentAnalysis.Components
 {
-    public class TypesViewComponent : ViewComponent
+    public class SeverityViewComponent : ViewComponent
     {
         private IAccidentsRepository repo { get; set; }
-        public TypesViewComponent(IAccidentsRepository temp)
+        public SeverityViewComponent(IAccidentsRepository temp)
         {
             repo = temp;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.SelectedType = RouteData?.Values["county"];
+            ViewBag.SelectedType = RouteData?.Values["severity"];
 
-            var types = repo.Accidents
-                .Select(x => x.county_name)
+            var severity = repo.Accidents
+                .Select(x => x.crash_severity_id)
                 .Distinct()
                 .OrderBy(x => x);
-            return View(types);
+            return View(severity);
         }
     }
 }
