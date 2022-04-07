@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UtahMotorVehicleAccidentAnalysis.Data;
+using UtahMotorVehicleAccidentAnalysis.Models;
 
 namespace UtahMotorVehicleAccidentAnalysis
 {
@@ -24,6 +25,7 @@ namespace UtahMotorVehicleAccidentAnalysis
         }
 
         public IConfiguration Configuration { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -52,10 +54,15 @@ namespace UtahMotorVehicleAccidentAnalysis
                 options.Password.RequiredUniqueChars = 1;
             });
 
+            services.AddDbContext<AccidentsDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
 
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            {
+                options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
+            });
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddDefaultUI()
                  .AddEntityFrameworkStores<ApplicationDbContext>()

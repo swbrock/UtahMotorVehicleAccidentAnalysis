@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UtahMotorVehicleAccidentAnalysis.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Identity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
