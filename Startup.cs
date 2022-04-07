@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UtahMotorVehicleAccidentAnalysis.Data;
+using UtahMotorVehicleAccidentAnalysis.Models;
 
 namespace UtahMotorVehicleAccidentAnalysis
 {
@@ -69,6 +70,14 @@ namespace UtahMotorVehicleAccidentAnalysis
                 options.AddPolicy("writepolicy",
                     builder => builder.RequireRole("Admin", "Manager"));
             });
+
+            //Link to database
+            services.AddDbContext<AccidentsDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:AccidentsDbConnection"]);
+            });
+
+            services.AddScoped<IAccidentsRepository, EFAccidentsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
