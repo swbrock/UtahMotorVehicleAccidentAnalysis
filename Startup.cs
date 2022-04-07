@@ -76,6 +76,14 @@ namespace UtahMotorVehicleAccidentAnalysis
                 options.AddPolicy("writepolicy",
                     builder => builder.RequireRole("Admin", "Manager"));
             });
+
+            //Link to database
+            services.AddDbContext<AccidentsDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:AccidentsDbConnection"]);
+            });
+
+            services.AddScoped<IAccidentsRepository, EFAccidentsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

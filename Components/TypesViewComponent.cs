@@ -1,29 +1,29 @@
-﻿using System;
+using System;
 using System.Linq;
-//using System.Threading.Tasks;
-//using Intex.Models;
-//using Microsoft.AspNetCore.Components;
-//using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
+using UtahMotorVehicleAccidentAnalysis.Models;
 
-//namespace Intex.Components
-//{
-//    public class TypesViewComponent : ViewComponent
-//    {
-//        private IAccidentsRepository repo { get; set; }
-//        public TypesViewComponent(IAccidentsRepository temp)
-//        {
-//            repo = temp;
-//        }
+namespace UtahMotorVehicleAccidentAnalysis.Components
+{
+    public class TypesViewComponent : ViewComponent
+    {
+        private IAccidentsRepository repo { get; set; }
+        public TypesViewComponent(IAccidentsRepository temp)
+        {
+            repo = temp;
+        }
 
-//        public async Task<IViewComponentResult> InvokeAsync()
-//        {
-//            ViewBag.SelectedType = RouteData?.Values["county"];
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            ViewBag.SelectedType = RouteData?.Values["county"];
 
-//            var types = repo.Accidents
-//                .Select(x => x.COUNTY_NAME)
-//                .Distinct()
-//                .OrderBy(x => x);
-//            return View(types);
-//        }
-//    }
-//}
+            var types = repo.Accidents
+                .Select(x => x.COUNTY_NAME)
+                .Distinct()
+                .OrderBy(x => x);
+            return View(types);
+        }
+    }
+}

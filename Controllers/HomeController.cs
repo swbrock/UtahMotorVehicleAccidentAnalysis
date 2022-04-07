@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,11 +12,11 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IAccidentsRepository repo { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IAccidentsRepository temp)
         {
-            _logger = logger;
+            repo = temp;
         }
 
         public IActionResult Index()
@@ -33,18 +33,31 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             return View();
         }
 
-        public IActionResult Analysis()
+        public IActionResult Prediction()
         {
             return View();
         }
 
-        public IActionResult MapAnalysis(string county)
+        public IActionResult Counties(string county)
         {
-            //var accidents = repo.Accidents
-            //    .Where(x => x.Cou == county || County == null)
-            //    .ToList();
+            var counties = repo.Accidents
+                .Where(x => x.COUNTY_NAME == county || county == null)
+                .ToList();           
+            return View(counties);
+        }
 
-            return View();//accidents);
+        public IActionResult City(string city)
+        {
+            var details = repo.Accidents
+                .Where(x => x.CITY == city)
+                .ToList();
+
+            return View(details);
+        }
+
+        public IActionResult Accidents()
+        {
+            return View();
         }
 
         public IActionResult DriveSafe()
