@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Counties";
+    Layout = "_Layout1";
+
+    var cities = Model.Select(x => x.CITY).Distinct();
+
+    var county = Model.Select(x => x.COUNTY_NAME).Distinct();
+}
+
+@model List<Accident>
+<!-- Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/cities.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-subheading" style="color:white; text-align: center;">
+                    <h1>Counties</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Filter -->
+<div id="types" class="justify-content-center" style="text-align:center;">
+    @await Component.InvokeAsync("Types")
+</div>
+<!-- Divider-->
+<hr class="my-4" />
+
+
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center;">
+               
+                @if (county.Count() > 1)
+                {
+                }
+                else {
+                    @foreach (var name in county)
+                    {
+                        <h3 style="color:">@name</h3>
+                    }
+                }
+
+                <br />
+
+                <table class="table table-bordered table-striped">
+
+                    <thead class="font-weight-bold">
+                        <tr>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var c in cities)
+                    {
+                        if (c == "OUTSIDE CITY LIMITS")
+                        {
+
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>@c</td>
+                            </tr>
+                        }
+                    }
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
