@@ -78,11 +78,6 @@ namespace UtahMotorVehicleAccidentAnalysis
                     builder => builder.RequireRole("Admin", "Manager"));
             });
 
-            //Link to database
-            services.AddDbContext<AccidentsDbContext>(options =>
-            {
-                options.UseMySql(Configuration["ConnectionStrings:AccidentsDbConnection"]);
-            });
 
             services.AddScoped<IAccidentsRepository, EFAccidentsRepository>();
 
