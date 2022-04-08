@@ -33,5 +33,9 @@
     <Folder Include="Views\Shared\Components\Types\" />
     <Folder Include="Views\Shared\Components\Factors\" />
     <Folder Include="Views\Shared\Components\Severity\" />
+    <Folder Include="wwwroot\img\icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\img\icons\" />
   </ItemGroup>
 </Project>

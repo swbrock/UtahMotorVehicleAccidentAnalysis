@@ -1,15 +1,118 @@
 ﻿@{
 }
 
-@model IEnumerable<string>
+@model List<Accident>
 
-<a asp-controller="Home" asp-action="Factors" asp-route-county=""
+<style>
+    #icon:hover {
+        filter: invert(60%);
+        cursor: pointer;
+    }
+</style>
+
+
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=0
    class="btn @(ViewBag.SelectedType == null ? "btn-primary" : "btn-outline-secondary") col-md justify-content-center">All</a>
 
-@foreach (string a in Model)
-{
-    if (a == "crash_id"){}
 
-    <a asp-controller="Home" asp-action="Factors" asp-route-county="@a"
-       class="btn @(ViewBag.SelectedType == a ? "btn-primary" : "btn-outline-secondary") col-md justify-content-center">@a</a>
-}
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=1>
+    <abbr title="Work Zone Related" id="icon">
+        <img src="~/img/icons/work.png" style="height:55px; border:2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=2>
+    <abbr title="Pedestrian Involved" id="icon">
+        <img src="~/img/icons/ped.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=3>
+    <abbr title="Bicyclist Involved" id="icon">
+        <img src="~/img/icons/bicy.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=4>
+    <abbr title="Motorcycle Involved" id="icon">
+        <img src="~/img/icons/motor.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=5>
+    <abbr title="Improper Restraint" id="icon">
+        <img src="~/img/icons/improper.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=6>
+    <abbr title="Unrestrained" id="icon">
+        <img src="~/img/icons/unres.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=7>
+    <abbr title="DUI" id="icon">
+        <img src="~/img/icons/dui.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=8>
+    <abbr title="Intersection Related" id="icon">
+        <img src="~/img/icons/inter.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=9>
+    <abbr title="Wild Animal Related" id="icon">
+        <img src="~/img/icons/wiild.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=10>
+    <abbr title="Domestic Animal Related" id="icon">
+        <img src="~/img/icons/domestic.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=11>
+    <abbr title="Overturn Rollover" id="icon">
+        <img src="~/img/icons/overturned.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=12>
+    <abbr title="Commercial Motor Vehicle Involved" id="icon">
+        <img src="~/img/icons/commercial.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=13>
+    <abbr title="Teenage Driver Involved" id="icon">
+        <img src="~/img/icons/teen.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=14>
+    <abbr title="Older Driver Involved" id="icon">
+        <img src="~/img/icons/older.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=15>
+    <abbr title="Night/Dark Condition" id="icon">
+        <img src="~/img/icons/night.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=16>
+    <abbr title="Single Vehicle" id="icon">
+        <img src="~/img/icons/single.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=17>
+    <abbr title="Distracted Driving" id="icon">
+        <img src="~/img/icons/distract.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=18>
+    <abbr title="Drowsy Driving" id="icon">
+        <img src="~/img/icons/drowsy.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+<a asp-controller="Home" asp-action="Factors" asp-route-factor=19>
+    <abbr title="Roadway Departure" id="icon">
+        <img src="~/img/icons/roadway.png" style="height:55px; border: 2px solid black" />
+    </abbr>
+</a>
+
+
+
+
+
+

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
     public class HomeController : Controller
     {
         private IAccidentsRepository repo { get; set; }
+
+        private AccidentsDbContext context { get; set; }
 
         public HomeController(IAccidentsRepository temp)
         {
@@ -74,9 +78,127 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             return View(details);
         }
 
-        public IActionResult Factors()
+        public IActionResult Factors(int factor)
         {
-            return View();
+            var crashes = repo.Accidents.ToList();
+
+            if (factor == 1)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.work_zone_related == "TRUE")
+                    .ToList();
+            }
+            if (factor == 2)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.pedestrian_involved == "TRUE")
+                    .ToList();
+            }
+            if (factor == 3)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.bicyclist_involved == "TRUE")
+                    .ToList();
+            }
+            if (factor == 4)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.motorcycle_involved == "TRUE")
+                    .ToList();
+            }
+            if (factor == 5)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.improper_restraint == "TRUE")
+                    .ToList();
+            }
+            if (factor == 6)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.unrestrained == "TRUE")
+                    .ToList();
+            }
+            if (factor == 7)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.dui == "TRUE")
+                    .ToList();
+            }
+            if (factor == 8)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.intersection_related == "TRUE")
+                    .ToList();
+            }
+            if (factor == 9)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.wild_animal_related == "TRUE")
+                    .ToList();
+            }
+            if (factor == 10)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.domestic_animal_related == "TRUE")
+                    .ToList();
+            }
+            if (factor == 11)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.overturn_rollover == "TRUE")
+                    .ToList();
+            }
+            if (factor == 12)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.commercial_motor_veh_involved == "TRUE")
+                    .ToList();
+            }
+            if (factor == 13)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.teenage_driver_involved == "TRUE")
+                    .ToList();
+            }
+            if (factor == 14)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.older_driver_involved == "TRUE")
+                    .ToList();
+            }
+            if (factor == 15)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.night_dark_condition == "TRUE")
+                    .ToList();
+            }
+            if (factor == 16)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.single_vehicle == "TRUE")
+                    .ToList();
+            }
+            if (factor == 17)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.distracted_driving == "TRUE")
+                    .ToList();
+            }
+            if (factor == 18)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.drowsy_driving == "TRUE")
+                    .ToList();
+            }
+            if (factor == 19)
+            {
+                crashes = repo.Accidents
+                    .Where(x => x.roadway_departure == "TRUE")
+                    .ToList();
+            }
+            
+
+            return View(crashes);
         }
 
         public IActionResult DriveSafe()

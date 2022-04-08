@@ -13,5 +13,6 @@ namespace UtahMotorVehicleAccidentAnalysis.Models
         }
 
         public IQueryable<Accident> Accidents => context.Accidents;
+
     }
 }
