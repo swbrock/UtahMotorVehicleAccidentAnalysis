@@ -14,5 +14,20 @@ namespace UtahMotorVehicleAccidentAnalysis.Models
         }
 
         public IQueryable<Accident> Accidents => context.Accidents;
+
+        public void SaveAccident(Accident b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateAccident(Accident b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAccident(Accident b)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
