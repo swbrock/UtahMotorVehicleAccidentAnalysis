@@ -1,11 +1,34 @@
-﻿@*@{
+﻿@{
     ViewData["Title"] = "Factors";
     Layout = "_Layout1";
+
+    var one = Model.Where(x => x.crash_severity_id == 1);
+    var two = Model.Where(x => x.crash_severity_id == 2);
+    var three = Model.Where(x => x.crash_severity_id == 3);
+    var four = Model.Where(x => x.crash_severity_id == 4);
+    var five = Model.Where(x => x.crash_severity_id == 5);
+
+    var cities = Model.Select(x => x.city).Distinct();
+    var total = 0;
+    foreach (var city in cities)
+    {
+        var c = Model.Where(x => x.city == city).Count();
+        total += c;
+    }
 }
 
-@model List<Accident>*@
-<!-- Page Header-->
-<!--<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/police.jpg'); background-size: 1500px 1000px; background-position: 50% 40%;">
+@model List<Accident>
+
+<head>
+    <style>
+        #filter:hover {
+            color: #0085A1;
+        }
+    </style>
+</head>
+
+<!--Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/police.jpg'); background-size: 1500px 1000px; background-position: 50% 40%;">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -15,61 +38,88 @@
             </div>
         </div>
     </div>
-</header>-->
+</header>
 
-<!-- Filter -->
-<!--<div id="types" class="justify-content-center" style="text-align:center;">-->
-    @*@await Component.InvokeAsync("Factors")*@
-<!--</div>-->
-<!-- Divider-->
-<!--<hr class="my-4" />-->
+<!--Filter-->
+<div id="types" class="justify-content-center" style="text-align:center;">
+    @await Component.InvokeAsync("Factors")
+</div>
+<!--Divider-->
+<hr class="my-4" />
 
-
-<!-- Main Content-->
-<!--<main class="mb-4">
+<!--Main Content-->
+<main class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center;">-->
-
-                @*@if (county.Count() > 1)
-                {
-                }
-                else
-                {
-                    @foreach (var name in county)
-                    {
-                        <h3>@name COUNTY</h3>
-                    }
-                }*@
-
-                <!--<br />
+            <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center;">
+                <h3>Summary</h3>
+                <br />
 
                 <table class="table table-bordered table-striped">
 
-                    <thead class="font-weight-bold">
+                    <thead style="font-weight: bold; background-color: lightblue;">
                         <tr>
-                            <th>City</th>
+                            <td>Total Crashes</td>
+                            <td>@Model.Count()</td>
+                            <td>100%</td>
                         </tr>
-                    </thead>-->
 
-                    @*@foreach (var c in cities)
+                    </thead>
+
+                    <tr>
+                        <td>Crash Severity 1</td>
+                        <td>@one.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(one.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 2</td>
+                        <td>@two.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(two.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 3</td>
+                        <td>@three.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(three.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 4</td>
+                        <td>@four.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(four.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+                    <tr>
+                        <td>Crash Severity 5</td>
+                        <td>@five.Count()</td>
+                        <td>@Math.Round((Decimal.Divide(five.Count(), Model.Count())) * 100, 2)%</td>
+                    </tr>
+
+                </table>
+
+                <p class="small" style="text-align:center; "><i>Click the table headers below to sort the table accordingly.</i></p>
+
+                <table class="table table-bordered table-striped sortable" id="features">
+
+                    <thead style="font-weight: bold; background-color: lightblue;">
+                        <tr>
+                            <td style="cursor: pointer;" id="filter">Total Cities</td>
+                            <td style="cursor: pointer;" id="filter">@total</td>
+                            <td style="cursor: pointer;" id="filter">100%</td>
+                        </tr>
+
+                    </thead>
+
+                    @foreach (var city in cities)
                     {
-                        if (c == "OUTSIDE CITY LIMITS")
-                        {
+                        var c = @Model.Where(x => x.city == city).Count();
+                        <tr class="item">
+                            <td>@city</td>
+                            <td>@c</td>
+                            <td>@Math.Round((Decimal.Divide(c, total)) * 100, 2)%</td>
+                        </tr>
+                    }
 
-                        }
-                        else
-                        {
-                            <tr>
-                                <td><a asp-controller="Home" asp-action="City" asp-route-city="@c">@c</a></td>
-                            </tr>
-                        }
-                    }*@
-
-
-
-                <!--</table>
+                </table>
             </div>
         </div>
     </div>
-</main>-->
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+</main>

@@ -11,5 +11,10 @@ namespace UtahMotorVehicleAccidentAnalysis.Models
         }
 
         public DbSet<Accident> Accidents { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Accident>().HasNoKey();
+        }
     }
 }
