@@ -57,7 +57,7 @@ namespace UtahMotorVehicleAccidentAnalysis
 
             services.AddDbContext<AccidentsDbContext>(options =>
             {
-                options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
+                options.UseMySql(Configuration["ConnectionStrings:AccidentsDbConnection"]);
 
             });
             services.AddDbContext<ApplicationDbContext>(options =>
