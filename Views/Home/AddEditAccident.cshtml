@@ -11,32 +11,32 @@
 
         <div asp-validation-summary="All"></div>
 
-        <label asp-for="CRASH_DATETIME">Date And Time:</label>
-        <input asp-for="CRASH_DATETIME" /><br />
+        <label asp-for="crash_datetime">Date And Time:</label>
+        <input asp-for="crash_datetime" /><br />
 
-        <label asp-for="ROUTE">Route:</label>
-        <input asp-for="ROUTE" /><br />
+        <label asp-for="route">Route:</label>
+        <input asp-for="route" /><br />
 
-        <label asp-for="MILEPOINT">Mile Point:</label>
-        <input asp-for="MILEPOINT" /><br />
+        <label asp-for="milepoint">Mile Point:</label>
+        <input asp-for="milepoint" /><br />
 
-        <label asp-for="LAT_UTM_Y">Latitude:</label>
-        <input asp-for="LAT_UTM_Y" /><br />
+        <label asp-for="lat_utm_y">Latitude:</label>
+        <input asp-for="lat_utm_y" /><br />
 
-        <label asp-for="LONG_UTM_X">Longitude:</label>
-        <input asp-for="LONG_UTM_X" /><br />
+        <label asp-for="long_utm_x">Longitude:</label>
+        <input asp-for="long_utm_x" /><br />
 
-        <label asp-for="MAIN_ROAD_NAME">Main Road Name:</label>
-        <input asp-for="MAIN_ROAD_NAME" /><br />
+        <label asp-for="main_road_name">Main Road Name:</label>
+        <input asp-for="main_road_name" /><br />
 
-        <label asp-for="CITY">City:</label>
-        <input asp-for="CITY" /><br />
+        <label asp-for="city">City:</label>
+        <input asp-for="city" /><br />
 
-        <label asp-for="COUNTY_NAME">County:</label>
-        <input asp-for="COUNTY_NAME" /><br />
+        <label asp-for="county_name">County:</label>
+        <input asp-for="county_name" /><br />
 
-        <label asp-for="CRASH_SEVERITY_ID">Crash Severity Rating:</label>
-        <select asp-for="CRASH_SEVERITY_ID">
+        <label asp-for="crash_severity_id">Crash Severity Rating:</label>
+        <select asp-for="crash_severity_id">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -44,152 +44,152 @@
             <option value="5">5</option>
         </select>
 
-        <label asp-for="WORK_ZONE_RELATED">Was this Work or Zone related?</label>
-        <select asp-for="WORK_ZONE_RELATED">
+        <label asp-for="work_zone_related">Was this Work or Zone related?</label>
+        <select asp-for="work_zone_related">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="PEDESTRIAN_INVOLVED">Was there a pedestrian involved?</label>
-        <select asp-for="PEDESTRIAN_INVOLVED">
+        <label asp-for="pedestrian_involved">Was there a pedestrian involved?</label>
+        <select asp-for="pedestrian_involved">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="BICYCLIST_INVOLVED">Was there a bicyclist invloved?</label>
-        <select asp-for="BICYCLIST_INVOLVED">
+        <label asp-for="bicyclist_involved">Was there a bicyclist invloved?</label>
+        <select asp-for="bicyclist_involved">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="MOTORCYCLE_INVOLVED">Was there a motorcycle involved?</label>
-        <select asp-for="MOTORCYCLE_INVOLVED">
+        <label asp-for="motorcycle_involved">Was there a motorcycle involved?</label>
+        <select asp-for="motorcycle_involved">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="IMPROPER_RESTRAINT">Was there an improper restraint involved?</label>
-        <select asp-for="IMPROPER_RESTRAINT">
+        <label asp-for="improper_restraint">Was there an improper restraint involved?</label>
+        <select asp-for="improper_restraint">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="UNRESTRAINED">Was someone not wearing a seatbelt?</label>
-        <select asp-for="UNRESTRAINED">
+        <label asp-for="unrestrained">Was someone not wearing a seatbelt?</label>
+        <select asp-for="unrestrained">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="DUI">Was someone driving under the influence of alcohol?</label>
-        <select asp-for="DUI">
+        <label asp-for="dui">Was someone driving under the influence of alcohol?</label>
+        <select asp-for="dui">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="INTERSECTION_RELATED">Was there an intersection involved?</label>
-        <select asp-for="INTERSECTION_RELATED">
+        <label asp-for="intersection_related">Was there an intersection involved?</label>
+        <select asp-for="intersection_related">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="WILD_ANIMAL_RELATED">Was there a wild animal involved?</label>
-        <select asp-for="WILD_ANIMAL_RELATED">
+        <label asp-for="wild_animal_related">Was there a wild animal involved?</label>
+        <select asp-for="wild_animal_related">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="DOMESTIC_ANIMAL_RELATED">Was there a Domestic animal involved?</label>
-        <select asp-for="DOMESTIC_ANIMAL_RELATED">
+        <label asp-for="domestic_animal_related">Was there a Domestic animal involved?</label>
+        <select asp-for="domestic_animal_related">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="OVERTURN_ROLLOVER">Did a car get overturned?</label>
-        <select asp-for="OVERTURN_ROLLOVER">
+        <label asp-for= "overturn_rollover">Did a car get overturned?</label>
+        <select asp-for="overturn_rollover">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">Was there a commercial motor vehicle involved?</label>
-        <select asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">
+        <label asp-for="commercial_motor_veh_involved">Was there a commercial motor vehicle involved?</label>
+        <select asp-for="commercial_motor_veh_involved">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="TEENAGE_DRIVER_INVOLVED">Was there a Teenage Driver involved?</label>
-        <select asp-for="TEENAGE_DRIVER_INVOLVED">
+        <label asp-for="teenage_driver_involved">Was there a Teenage Driver involved?</label>
+        <select asp-for="teenage_driver_involved">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="OLDER_DRIVER_INVOLVED">Was there an older driver involved?</label>
-        <select asp-for="OLDER_DRIVER_INVOLVED">
+        <label asp-for="older_driver_involved">Was there an older driver involved?</label>
+        <select asp-for="older_driver_involved">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="NIGHT_DARK_CONDITION">Was it at night?</label>
-        <select asp-for="NIGHT_DARK_CONDITION">
+        <label asp-for="night_dark_condition">Was it at night?</label>
+        <select asp-for="night_dark_condition">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="SINGLE_VEHICLE">Was there only one car involved?</label>
-        <select asp-for="SINGLE_VEHICLE">
+        <label asp-for="single_vehicle">Was there only one car involved?</label>
+        <select asp-for="single_vehicle">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="DISTRACTED_DRIVING">Was the driver distracted?</label>
-        <select asp-for="DISTRACTED_DRIVING">
+        <label asp-for="distracted_driving">Was the driver distracted?</label>
+        <select asp-for="distracted_driving">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="DROWSY_DRIVING">Was the driver tired?</label>
-        <select asp-for="DROWSY_DRIVING">
+        <label asp-for="drowsy_driving">Was the driver tired?</label>
+        <select asp-for="drowsy_driving">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
             }
         </select>
 
-        <label asp-for="ROADWAY_DEPARTURE">Was it a roadway departure accident?</label>
-        <select asp-for="ROADWAY_DEPARTURE">
+        <label asp-for="roadway_departure">Was it a roadway departure accident?</label>
+        <select asp-for="roadway_departure">
             {
             <option value="TRUE">Yes</option>
             <option value="FALSE">No</option>
