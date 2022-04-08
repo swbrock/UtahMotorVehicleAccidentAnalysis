@@ -1,23 +1,268 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Prediction";
+    Layout = "_Layout1";
 }
 
 @model CrashData
-
-<form method="post" asp-controller="Inference" asp-action="Score">
-
-
-    <div><label>Pedestrian Involved:</label><input type=number asp-for="pedestrian_involved_True" value="1.0" /></div>
-    <div><label>Bicyclist involved: </label><input type=number asp-for="bicyclist_involved_True" value="1.0" /></div>
-    <div><label>Motorcycle involved:</label><input type=number asp-for="motorcycle_involved_True" value="1.0" /></div>
-    <div><label>Improper restraint: </label><input type=number asp-for="improper_restraint_True" value="1.0" /></div>
-    <div><label>Unrestrained:</label><input type=number asp-for="unrestrained_True" value="1.0" /></div>
-    <div><label>DUI:</label><input type=number asp-for="dui_True" value="1.0" /></div>
-    <div><label>Intersection related:</label><input type=number asp-for="intersection_related_True" value="1.0" /></div>
-    <div><label>Overturn rollover:</label><input type=number asp-for="overturn_rollover_True" value="1.0" /></div>
-    <div><label>Single vehicle:</label><input type=number asp-for="single_vehicle_True" value="1.0" /></div>
-    <div><label>Distracted driving:</label><input type=number asp-for="distracted_driving_True" value="1.0" /></div>
+<!-- Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/speedometer.jpg');background-position: 49% 51%;">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-subheading" style="color:white; text-align: center;">
+                    <h1>Prediction</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 
-    <button type="submit">Calculate</button>
-</form>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row">
+            <div class="col col-lg-4" style="background-color:lightblue;padding:5px">
+                <h3 style="text-align:center">Make Prediction</h3>
+                <form method="post" asp-controller="Inference" asp-action="Score">
+                    <table class="table">
+                        <thead class="font-weight-bold" style="font-weight: bold;">
+                            <tr>
+                                <td>Factor</td>
+                                <td>True?</td>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pedestrian Involved:</td>
+                                <td>
+                                    <select asp-for="pedestrian_involved_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bicyclist involved: </td>
+                                <td>
+                                    <select asp-for="bicyclist_involved_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Motorcycle involved:</td>
+                                <td>
+                                    <select asp-for="motorcycle_involved_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Improper restraint: </td>
+                                <td>
+                                    <select asp-for="improper_restraint_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Unrestrained:</td>
+                                <td>
+                                    <select asp-for="unrestrained_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>DUI:</td>
+                                <td>
+                                    <select asp-for="dui_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Intersection related:</td>
+                                <td>
+                                    <select asp-for="intersection_related_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Overturn rollover:</td>
+                                <td>
+                                    <select asp-for="overturn_rollover_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Single vehicle:</td>
+                                <td>
+                                    <select asp-for="single_vehicle_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>Distracted driving:</td>
+                                <td>
+                                    <select asp-for="distracted_driving_True">
+                                        {
+                                        <option value="0.0">No</option>
+                                        <option value="1.0">Yes</option>
+                                        }
+                                    </select>
+                                </td>
+                            <tr />
+                            <tr>
+                                <td>
+                                    <button class="btn btn-primary" type="submit">Calculate</button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+            </div>
+            <div class="col">
+                <h3 style="text-align:center">Top Ten Factors that Lead to More Injuries</h3>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                #1 - Pedestrian Involved
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether a pedestrian was involved in the crash. This also includes whether a pedestrian was hit bt a vehicle.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                #2 - Bicyclist Involved
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether a bicyclist was involved in the crash. This also includes whether a bicyclist was hit by a vehicle.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                #3 - Motorcyle Involved
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether a motorcycle was involved in the crash.</div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                    #4 - Improper Restraint
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Indicates whether the driver or passengers involved in the crash were wearing seat belts properly.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                #5 - Unrestrained
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether the driver or passengers were wearing a seatbelt during the crash.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                #6 - DUI
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether the crash was caused by a driver being under the influence of drugs.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                                #7 - Intersection Related
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether the crash occurred at an intersection. Examples include running red lights, left turn collisions, etc.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+                                #8 - Overturn Rollover
+                            </button>
+                        </h2>
+                        <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether the vehicle in the crash flipped or rolled over on impact.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingNine">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                                #9 - Single vehicle
+                            </button>
+                        </h2>
+                        <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether there was only one vehicle involved in the crash. Examples include slipping off the road, avoiding obstacles in the road, etc.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTen">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
+                                #10 - Distracted driving
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-headingTen" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Indicates whether the crash was caused by a driver being distracted while driving, either by a cell phone, radio, etc.</div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</main>
+
+<br />
+<br />
