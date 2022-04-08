@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UtahMotorVehicleAccidentAnalysis.Models;
 
-namespace UtahMotorVehicleAccidentAnalysis.Migrations.AccidentsDb
+namespace UtahMotorVehicleAccidentAnalysis.Migrations
 {
     [DbContext(typeof(AccidentsDbContext))]
     partial class AccidentsDbContextModelSnapshot : ModelSnapshot
