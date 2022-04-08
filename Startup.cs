@@ -57,7 +57,7 @@ namespace UtahMotorVehicleAccidentAnalysis
 
             services.AddDbContext<AccidentsDbContext>(options =>
             {
-                options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
+                options.UseMySql(Configuration["ConnectionStrings:AccidentsDbConnection"]);
 
             });
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -106,6 +106,13 @@ namespace UtahMotorVehicleAccidentAnalysis
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //This will allow us 
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Response.Headers.Add("Content-Security-Policy", "base-uri 'self'; default-src 'self'; img-src *; object-src 'none'; script-src 'self' https://stackpath.bootstrapcdn.com/; style-src 'self' https://stackpath.bootstrapcdn.com/; upgrade-insecure-requests;");
+            //    await next();
+            //});
 
             app.UseEndpoints(endpoints =>
             {
