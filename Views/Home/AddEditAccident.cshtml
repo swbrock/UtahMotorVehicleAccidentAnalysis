@@ -1,0 +1,283 @@
+﻿@{
+    ViewData["Title"] = "Update Accident Information";
+    Layout = "_Layout1";
+}
+
+@model Accident 
+    <header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../../img/database.jpg');background-position: 49% 51%;">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-subheading" style="color:white; text-align: center;">
+                        <h1>Accident Information</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="text-left" align="center">
+        <h3>Fill out Information Here</h3>
+        <!--Form-->
+        <form method="post">
+            <table class="table-bordered">
+                <tr>
+                    <td><label asp-for="crash_datetime">Date And Time:</label></td>
+                    <td><input asp-for="crash_datetime" placeholder="YYYY-MM-DD HH:MM:SS" /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="route">Route:</label></td>
+                    <td><input asp-for="route" /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="milepoint">Mile Point:</label></td>
+                    <td><input asp-for="milepoint" /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="lat_utm_y">Latitude:</label></td>
+                    <td><input asp-for="lat_utm_y" /><br /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="long_utm_x">Longitude:</label></td>
+                    <td><input asp-for="long_utm_x" /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="main_road_name">Main Road Name:</label></td>
+                    <td><input asp-for="main_road_name" /><br /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="city">City:</label></td>
+                    <td><input asp-for="city" /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="county_name">County:</label></td>
+                    <td><input asp-for="county_name" /></td>
+                </tr>
+                <tr>
+                    <td><label asp-for="crash_severity_id">Crash Severity Rating:</label></td>
+                    <td>
+                        <select asp-for="crash_severity_id">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="work_zone_related">Work Zone related?</label></td>
+                    <td>
+                        <select asp-for="work_zone_related">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="pedestrian_involved">Pedestrian involved?</label></td>
+                    <td>
+                        <select asp-for="pedestrian_involved">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="bicyclist_involved">Bicyclist invloved?</label></td>
+                    <td>
+                        <select asp-for="bicyclist_involved">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label asp-for="motorcycle_involved">Motorcycle involved?</label></td>
+                    <td>
+                        <select asp-for="motorcycle_involved">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="improper_restraint">Improper restraint involved?</label></td>
+                    <td>
+                        <select asp-for="improper_restraint">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="unrestrained">Not wearing a seatbelt?</label></td>
+                    <td>
+                        <select asp-for="unrestrained">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="dui">DUI?</label></td>
+                    <td>
+                        <select asp-for="dui">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="intersection_related">Intersection involved?</label></td>
+                    <td>
+                        <select asp-for="intersection_related">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="wild_animal_related">Wild animal involved?</label></td>
+                    <td>
+                        <select asp-for="wild_animal_related">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="domestic_animal_related">Domestic animal involved?</label></td>
+                    <td>
+                        <select asp-for="domestic_animal_related">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="overturn_rollover">Car get overturned?</label></td>
+                    <td>
+                        <select asp-for="overturn_rollover">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="commercial_motor_veh_involved">Commercial Motor Vehicle involved?</label></td>
+                    <td>
+                        <select asp-for="commercial_motor_veh_involved">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="teenage_driver_involved">Teenage Driver involved?</label></td>
+                    <td>
+                        <select asp-for="teenage_driver_involved">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="older_driver_involved">Older driver involved?</label></td>
+                    <td>
+                        <select asp-for="older_driver_involved">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="night_dark_condition">Night?</label></td>
+                    <td>
+                        <select asp-for="night_dark_condition">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="single_vehicle">Only one car involved?</label></td>
+                    <td>
+                        <select asp-for="single_vehicle">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="distracted_driving">Driver distracted?</label></td>
+                    <td>
+                        <select asp-for="distracted_driving">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="drowsy_driving">Driver tired?</label></td>
+                    <td>
+                        <select asp-for="drowsy_driving">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="roadway_departure">Roadway departure accident?</label></td>
+                    <td>
+                        <select asp-for="roadway_departure">
+                            {
+                            <option value="TRUE">Yes</option>
+                            <option value="FALSE">No</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div asp-validation-summary="All"></div>
+            <button type="submit">Submit Accident Info</button>
+        </form>
+    </div> 
+        

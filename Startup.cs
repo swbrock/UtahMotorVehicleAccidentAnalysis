@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace UtahMotorVehicleAccidentAnalysis
         }
 
         public IConfiguration Configuration { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -53,10 +55,15 @@ namespace UtahMotorVehicleAccidentAnalysis
                 options.Password.RequiredUniqueChars = 1;
             });
 
+            services.AddDbContext<AccidentsDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
 
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            {
+                options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]);
+            });
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddDefaultUI()
                  .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -78,6 +85,9 @@ namespace UtahMotorVehicleAccidentAnalysis
             });
 
             services.AddScoped<IAccidentsRepository, EFAccidentsRepository>();
+
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("xgboost.onnx"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

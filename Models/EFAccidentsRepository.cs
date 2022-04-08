@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Linq;
+using UtahMotorVehicleAccidentAnalysis.Models;
 
 namespace UtahMotorVehicleAccidentAnalysis.Models
 {
@@ -14,5 +15,22 @@ namespace UtahMotorVehicleAccidentAnalysis.Models
 
         public IQueryable<Accident> Accidents => context.Accidents;
 
+        public void SaveAccident(Accident a)
+        {
+            context.Update(a);
+            context.SaveChanges();
+        }
+
+        public void CreateAccident(Accident a)
+        {
+            context.Add(a);
+            context.SaveChanges();
+        }
+
+        public void DeleteAccident(Accident a)
+        {
+            context.Remove(a);
+            context.SaveChanges();
+        }
     }
 }

@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Prediction";
+    Layout = "_Layout1";
+    var message = "";
+    var color = "";
+    var injury = "";
+}
+
+@model UtahMotorVehicleAccidentAnalysis.Models.Prediction
+<!-- Page Header-->
+<header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/speedometer.jpg');background-position: 49% 51%;">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-subheading" style="color:white; text-align: center;">
+                    <h1>Prediction</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+@switch (Model.PredictedValue)
+{
+    case 1:
+        color = "green";
+        message = "No injury";
+        injury = "no";
+        break;
+    case 2:
+        color = "yellowgreen";
+        message = "Possible Injury";
+        injury = "slight";
+        break;
+    case 3:
+        color = "gold";
+        message = "Suspected Minor Injury";
+        injury = "minor";
+        break;
+    case 4:
+        color = "orange";
+        message = "Suspected Serious Injury";
+        injury = "major";
+        break;
+    case 5:
+        color = "red";
+        message = "Fatal";
+        injury = "fatal";
+        break;
+    default:
+        message = "";
+        break;
+}
+
+<!-- Main Content-->
+<main class="mb-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 style="color:@color;text-align:center">Score: @Model.PredictedValue</h1>
+                <br />
+                <h3 style="color:@color;text-align:center">Description: @message</h3>
+                <br />
+                <p>Based on the provided factors, the people involved in this crash will most likely sustain <strong>@injury</strong> injuries.  </p>
+                <p>Disclaimer: The more factors you select as true, the less acurrate the model becomes. This is because there is not sufficient data for accidents involving more than 3 factors. </p>
+                <p>The purpose of this model is to show the top 10 factors that contribute to injuries and predict the severity of injuries incurred from each of these factors.</p>
+                <br />
+                <a class="btn " style="padding: 10px; background-color: #d5d6a3" asp-controller="Inference" asp-action="EnterData">Make Another Prediction</a>
+
+            </div>
+
+            <div class="col col-lg-2">
+                <h3 style="text-align:center">Crash Severities</h3>
+
+                <table class="table">
+
+                    <thead class="font-weight-bold" style="background-color: #efdecd; font-weight: bold;">
+                        <tr>
+                            <td>ID</td>
+                            <td>Description</td>
+                        </tr>
+
+                    </thead>
+
+                    <tr>
+                        <td style="color:green">1</td>
+                        <td style="color:green">No injury</td>
+
+                    </tr>
+                    <tr>
+                        <td style="color:yellowgreen">2</td>
+                        <td style="color:yellowgreen"> Possible injury</td>
+                    </tr>
+                    <tr>
+                        <td style="color:gold">3</td>
+                        <td style="color:gold"> Suspected minor injury</td>
+
+                    </tr>
+                    <tr>
+                        <td style="color:orange">4</td>
+                        <td style="color:orange">Suspected serious injury </td>
+
+                    </tr>
+                    <tr>
+                        <td style="color:red">5</td>
+                        <td style="color:red"> Fatal</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</main>
+

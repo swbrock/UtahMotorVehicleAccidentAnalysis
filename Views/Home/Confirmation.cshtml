@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Confirmation";
+    Layout = "_Layout1";
+}
+
+@model Accident
+    <header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../../img/database.jpg');background-position: 49% 51%;">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-subheading" style="color:white; text-align: center;">
+                        <h1>Confirmation</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!--Confirmation Message-->
+<div class="text-center">
+    <h4 class="display-4">This Accident information was succefully added for @Model.crash_id</h4>
+    <h5>Thank you for helping us gather data to help make the roads a safer place!</h5>
+</div>
