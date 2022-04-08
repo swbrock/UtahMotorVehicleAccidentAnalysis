@@ -5,7 +5,6 @@
     var id = Model.Select(x => x.crash_severity_id).Distinct();
 }
 @model List<Accident>
-
 <!-- Page Header-->
 <header class="masthead" style="padding:35px;padding-top:90px;background-image: url('../img/database.jpg');background-position: 49% 51%;">
     <div class="container position-relative px-4 px-lg-5">
@@ -29,6 +28,7 @@
 <p style="text-align: center;">
     1=no injury | 2=possible injury |  3=suspected minor injury | 4=suspected serious injury | 5=fatal
 </p>
+
 
 <!-- Main Content-->
 <main class="mb-4">
@@ -82,5 +82,8 @@
                 </table>
             </div>
         </div>
+        <br />
+        <a class="btn" style="padding: 10px; background-color: #d5d6a3; " asp-controller="Home" asp-action="AddAccident" asp-route-id="">  Add New Accident Report  </a>
+
     </div>
 </main>
