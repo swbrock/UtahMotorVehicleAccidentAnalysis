@@ -9,8 +9,8 @@ using UtahMotorVehicleAccidentAnalysis.Data;
 namespace UtahMotorVehicleAccidentAnalysis.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220408085927_Initial")]
-    partial class Initial
+    [Migration("20220408201729_Initital")]
+    partial class Initital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
