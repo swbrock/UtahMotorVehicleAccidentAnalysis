@@ -88,16 +88,50 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
         {
             return View();
         }
-        [Authorize(Policy = "writepolicy")]
-        public IActionResult Delete()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        [HttpGet]
+        [Authorize(Policy = "writepolicy")]
+        public IActionResult Edit(int crash_id)
+        {
+            var crash = repo.Accidents
+                .Where(x => x.crash_id == crash_id)
+                .FirstOrDefault();
+
+            return View("AddEditAccident", crash);
+        }
+
+        [Authorize(Policy = "writepolicy")]
+        [HttpPost]
+        public IActionResult Edit(Accident a)
+        {
+            repo.SaveAccident(a);
+
+            return RedirectToAction("Index");
+        }
+
+        [Authorize(Policy = "writepolicy")]
+        [HttpGet]
+        public IActionResult Delete(int crash_id)
+        {
+            var crash = repo.Accidents.Single(x => x.crash_id == crash_id);
+
+            return View(crash);
+        }
+
+        [Authorize(Policy = "writepolicy")]
+        [HttpPost]
+        public IActionResult Delete(Accident a)
+        {
+            repo.DeleteAccident(a);
+
+            return RedirectToAction("Index");
         }
     }
 }
