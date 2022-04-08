@@ -36,19 +36,29 @@
             <hr class="my-4" />
             <!-- Analysis Tab -->
             <div class="post-preview">
-                <a asp-controller="Home" asp-action="Analysis">
-                    <h2 class="post-title">Analysis</h2>
-                    <h3 class="post-subtitle">Learn more about what increases the chances of a crash.</h3>
+                <a asp-controller="Inference" asp-action="EnterData">
+                    <h2 class="post-title">Prediction</h2>
+                    <h3 class="post-subtitle">See the top 10 factors that affect injuries and get an estimate for the severity of those injuries.</h3>
                 </a>
             </div>
 
             <!-- Divider-->
             <hr class="my-4" />
-            <!-- Map Analysis Tab -->
+            <!-- Counties Tab -->
             <div class="post-preview">
-                <a asp-controller="Home" asp-action="MapAnalysis">
-                    <h2 class="post-title">Map Analysis</h2>
-                    <h3 class="post-subtitle">See where accidents commonly occur here.</h3>
+                <a asp-controller="Home" asp-action="Counties">
+                    <h2 class="post-title">Counties</h2>
+                    <h3 class="post-subtitle">View the most common factors that contribute to accidents for each city.</h3>
+                </a>
+            </div>
+
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Factors Tab -->
+            <div class="post-preview">
+                <a asp-controller="Home" asp-action="Factors">
+                    <h2 class="post-title">Factors</h2>
+                    <h3 class="post-subtitle">See all factors that contribute to car accidents and which cities are affected the most.</h3>
                 </a>
             </div>
 
@@ -58,7 +68,7 @@
             <div class="post-preview">
                 <a asp-controller="Home" asp-action="DriveSafe">
                     <h2 class="post-title">DriveSafe</h2>
-                    <h3 class="post-subtitle">Are you likely to get into an accident? Come find out!</h3>
+                    <h3 class="post-subtitle">Want to stay informed? Click here to sign up for our newsletter!</h3>
                 </a>
             </div>
 
