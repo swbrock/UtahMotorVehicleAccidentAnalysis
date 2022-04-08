@@ -10,9 +10,9 @@ namespace UtahMotorVehicleAccidentAnalysis.Models
         public int crash_id { get; set; }
         public string crash_datetime { get; set; }
         public string route { get; set; }
-        public int milepoint { get; set; }
-        public int lat_utm_y { get; set; }
-        public int long_utm_x { get; set; }
+        public double milepoint { get; set; }
+        public double lat_utm_y { get; set; }
+        public double long_utm_x { get; set; }
         public string main_road_name { get; set; }
         public string city { get; set; }
         public string county_name { get; set; }
