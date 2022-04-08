@@ -83,12 +83,6 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
             return View();
         }
 
-        [Authorize(Policy = "writepolicy")]
-        public IActionResult AddEditAccident()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -98,13 +92,13 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
 
         [HttpGet]
         [Authorize(Policy = "writepolicy")]
-        public IActionResult Edit(int crash_id)
+        public IActionResult Edit(int id)
         {
-            var crash = repo.Accidents
-                .Where(x => x.crash_id == crash_id)
+            var details = repo.Accidents
+                .Where(x => x.crash_id == id)
                 .FirstOrDefault();
 
-            return View("AddEditAccident", crash);
+            return View("AddEditAccident", details);
         }
 
         [Authorize(Policy = "writepolicy")]
@@ -113,14 +107,14 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
         {
             repo.SaveAccident(a);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Database");
         }
 
         [Authorize(Policy = "writepolicy")]
         [HttpGet]
-        public IActionResult Delete(int crash_id)
+        public IActionResult Delete(int id)
         {
-            var crash = repo.Accidents.Single(x => x.crash_id == crash_id);
+            var crash = repo.Accidents.Single(x => x.crash_id == id);
 
             return View(crash);
         }
@@ -131,7 +125,34 @@ namespace UtahMotorVehicleAccidentAnalysis.Controllers
         {
             repo.DeleteAccident(a);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Database");
+        }
+        
+        [Authorize(Policy = "writepolicy")]
+        [HttpGet]
+        public IActionResult AddAccident()
+        {
+            var bowler = repo.Accidents.Select(x => x.crash_id);
+
+            return View("AddEditAccident");
+        }
+
+        [Authorize(Policy = "writepolicy")]
+        [HttpPost]
+        public IActionResult AddAccident(Accident a)
+        {
+            if (ModelState.IsValid)
+            {
+                repo.CreateAccident(a);
+
+                return View("Confirmation", a);
+            }
+
+            else //if invalid
+            {
+                return View("AddEditAccident", a);
+            }
+
         }
     }
 }
