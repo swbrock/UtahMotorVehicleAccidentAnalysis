@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace UtahMotorVehicleAccidentAnalysis.Migrations
+namespace UtahMotorVehicleAccidentAnalysis.Migrations.ApplicationDb
 {
-    public partial class Identity : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

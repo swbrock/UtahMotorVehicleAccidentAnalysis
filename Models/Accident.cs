@@ -1,12 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UtahMotorVehicleAccidentAnalysis.Models
 {
     public class Accident
     {
-        [Key]
         [Required]
+        [Key]
         public int crash_id { get; set; }
         public string crash_datetime { get; set; }
         public string route { get; set; }
