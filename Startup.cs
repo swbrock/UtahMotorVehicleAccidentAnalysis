@@ -107,10 +107,10 @@ namespace UtahMotorVehicleAccidentAnalysis
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //This will allow us 
+            //This will allow us to be more secure with out own content-security-policy
             //app.Use(async (context, next) =>
             //{
-            //    context.Response.Headers.Add("Content-Security-Policy", "base-uri 'self'; default-src 'self'; img-src *; object-src 'none'; script-src 'self' https://stackpath.bootstrapcdn.com/; style-src 'self' https://stackpath.bootstrapcdn.com/; upgrade-insecure-requests;");
+            //    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; img-src https://www.pexels.com/?locale=en-us https://thenounproject.com/ 'self'; script-src https://startbootstrap.com/theme/clean-blog; style-src *;");
             //    await next();
             //});
 
