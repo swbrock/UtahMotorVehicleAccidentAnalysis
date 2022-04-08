@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UtahMotorVehicleAccidentAnalysis.Data;
 
-namespace UtahMotorVehicleAccidentAnalysis.Migrations
+namespace UtahMotorVehicleAccidentAnalysis.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220407160917_Identity")]
-    partial class Identity
+    [Migration("20220408085927_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

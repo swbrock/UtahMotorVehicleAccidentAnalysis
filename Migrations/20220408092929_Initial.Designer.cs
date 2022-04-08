@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UtahMotorVehicleAccidentAnalysis.Models;
 
-namespace UtahMotorVehicleAccidentAnalysis.Migrations.AccidentsDb
+namespace UtahMotorVehicleAccidentAnalysis.Migrations
 {
     [DbContext(typeof(AccidentsDbContext))]
-    [Migration("20220408083011_Fix2")]
-    partial class Fix2
+    [Migration("20220408092929_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
