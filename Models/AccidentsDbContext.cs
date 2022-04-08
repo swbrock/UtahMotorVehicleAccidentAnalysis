@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
+using UtahMotorVehicleAccidentAnalysis.Models;
 
 namespace UtahMotorVehicleAccidentAnalysis.Models
 {
